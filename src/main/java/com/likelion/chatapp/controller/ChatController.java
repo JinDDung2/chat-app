@@ -18,6 +18,12 @@ public class ChatController {
 
     private List<ChatMessage> chatMessageList = new ArrayList<>();
 
+    @GetMapping("/room")
+    public String room() {
+        return "chat/room";
+    }
+
+
     @Getter
     public static class WriteMessageRequest {
         private String writer;
