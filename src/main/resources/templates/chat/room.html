@@ -113,11 +113,15 @@
   }
   Chat__loadMore();
 
-  const sse = new EventSource("/see/connect");
+  // SSE 연결
+  // SSE는 단방향 무전기
+  // 방향 : 서버 -> 클라이언트
+  const sse = new EventSource("/sse/connect");
 
+  // 서버로부터 "chat__messageAdded" 라는 명령이 내려오면 Chat__loadMore 함수를 실행
   sse.addEventListener('chat__messageAdded', e => {
     Chat__loadMore();
-  })
+  });
 
   // 채팅 메시지들 읽기 끝
 </script>
