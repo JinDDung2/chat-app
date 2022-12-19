@@ -18,11 +18,18 @@ public class ChatController {
 
     private List<ChatMessage> chatMessageList = new ArrayList<>();
 
-    @AllArgsConstructor
     @Getter
     public static class WriteMessageRequest {
-        private final String writer;
-        private final String content;
+        private String writer;
+        private String content;
+
+        public WriteMessageRequest() {
+        }
+
+        public WriteMessageRequest(String writer, String content) {
+            this.writer = writer;
+            this.content = content;
+        }
     }
 
     @AllArgsConstructor
